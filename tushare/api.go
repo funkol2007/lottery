@@ -2,11 +2,11 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"strconv"
 
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/mvc"
-	"github.com/sirupsen/logrus"
 )
 
 type lotterController struct {
@@ -33,7 +33,7 @@ func (c *lotterController) GetHsgt() string {
 	)
 	defer func() {
 		if err != nil {
-			logrus.Errorf("GetHsgt error code :%d, mssage:%s", err.Code(), err.String())
+			fmt.Printf("GetHsgt error code :%d, mssage:%s", err.Code(), err.String())
 		}
 	}()
 	resp, err = moneyflowHsgt()
